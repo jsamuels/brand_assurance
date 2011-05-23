@@ -1,0 +1,34 @@
+<div class="prepend-5 span-8 last">
+	<br/>
+	<br/>
+<div class="vcc-form">
+	<fieldset>
+		<legend>Please Log In</legend>
+		<% form_tag do %>
+			<div class="span-7 last">
+			<p>
+				<div class="span-2">	
+					<label for="name">Name:</label>
+				</div>
+				<div class="span-5 last">	
+					<%= text_field_tag	:name, params[:name] %>
+				</div>
+			</p>
+			<p>
+				<div class="span-2">
+					<label for="password">Password:</label>
+				</div>
+				<div class="span-5 last">
+				<%= password_field_tag	:password, params[:password] %>
+				</div>
+			</p>
+			<p>
+				<div class="prepend-2 span-2 last">
+					<%= submit_tag "Login" %>
+				</div>	
+			</p>
+			</div>
+		<% end%>	
+	</fieldset>
+</div>
+</div>	

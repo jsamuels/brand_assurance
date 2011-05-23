@@ -1,0 +1,33 @@
+<div class="span-20 last" >
+	
+	<div id="tabs">
+		<ul>
+			<li><a href="#tabs-1">dE Chart</a></li>
+			<li><a href="#tabs-2">L*a*b* Table</a></li>
+			<li><a href="#tabs-3">Details</a></li>
+		</ul>
+		<div id="tabs-1">
+      <div id="chart" class="chart">
+		  	<%#   *****   GRAPH  ******   -%>
+					<%= render(:partial => "proofs/chart" , :locals => { :trend => false } ) %>
+			</div>
+		</div>
+		<div id="tabs-2">
+      <div id="lab_table" class="scrollable" >
+				<%=  render(:partial => "proofs/lab_table", :locals => { :patches => @proof.patches } ) %>
+			</div>
+		</div>
+		<div id="tabs-3">
+      <div id="right_bar" >
+				<%=  render(:partial => "proofs/proof_details") %>
+			</div>
+		</div>
+	</div>
+</div>
+ 
+<div class="span-20 last" style="text-align: right;">  
+	<%= link_to "Trend", :controller => 'devices', :action => 'trend_de' %>
+	<%= mail_to "me@domain.com", "email", :subject => "ProofCheck", 
+							:body => "Please Check this proof from\n#{@date_filter.device.name}
+							\nhttp://vccweb.vertisinc.com/devices/proof_email?proof=#{@proof.id}&key=#{@key}" %>	
+</div>

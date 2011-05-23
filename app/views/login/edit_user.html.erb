@@ -1,0 +1,33 @@
+<div class="prepend-1 span-18">	
+<div class="vcc-form">
+	<%= error_messages_for 'user' %>
+	
+	<fieldset>
+		<legend>User Details</legend>
+		<% form_for :user, 
+					:url => {:action => :update_user, :id => @user}, 
+					:html => {:class => "User-Form" } do |form| %>
+			<p><label for="user_name">Name:</label></p>
+			<%= form.text_field :name, :size => 40 %>
+			<p>
+			<label for="user_member_id">Member</label><br />
+			<%= form.select( "member_id", Member.all.collect {|m| [ m.name, m.id ] }, 
+							{:prompt => 'Select Member'}, :style => "font-size:0.5em") %>
+			</p>
+			<p><label for="user_level">Level</label><br/>
+				<select id="user_level" name="user[level]" style="font-size:0.5em">
+					<%= options_for_select( %w{0 1 2 3 4 5 6 7 8 9}, h(@user.level) ) %>	
+				</select>
+			</p>
+			<!-- # need hashed_password to validate -->
+			<%= form.hidden_field :hashed_password %>
+			
+			
+			<%= submit_tag "Update User", :class => "submit" %>
+		
+		<% end %>
+	
+	</fieldset>
+	
+</div>
+</div>

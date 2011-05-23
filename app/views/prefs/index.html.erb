@@ -1,0 +1,22 @@
+<h1>Listing prefs</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% @prefs.each do |pref| %>
+  <tr>
+	<td><%= pref.id %></td>
+<td><%= pref.name %></td>
+<td><%= pref.match %></td>
+<td><%= pref.value %></td>
+    <td><%= link_to 'Show', pref %></td>
+    <td><%= link_to 'Edit', edit_pref_path(pref) %></td>
+    <td><%= link_to 'Destroy', pref, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New pref', new_pref_path %>

@@ -1,0 +1,24 @@
+<div>
+	<h4><%= link_to "Members", :controller => 'members', :action => 'index' %></h4>
+		<div>
+
+			<% form_for(@user, :url => {:controller => 'members', :action => 'set_member', :id =>@user } )do |f| %>
+			  <%= f.error_messages %>
+			 <p>
+			    <label for="user_member_id"></label><br />
+			    <%= f.select( "member_id", Member.all.collect {|m| [ m.name, m.id ] 
+				}, {:prompt => 'Select Member'}, :style => "font-size:	0.7em; ") %>
+			  </p>
+				<%= f.submit 'Set' %>
+			<% end %>
+			<br/>
+			<br/>
+			
+			<p class="tab-links">
+			<%= link_to 'All', members_path, :style => "color: #009;" %> | 
+			<%= link_to 'Edit', {:controller => 'members', :action => 'edit', :id =>@member }, :style => "color: #009;" %> | 
+			<%= link_to 'New', {:controller => 'members', :action => 'new'} , :style => "color: #009;" %>
+			</p>
+			
+		</div>
+</div>

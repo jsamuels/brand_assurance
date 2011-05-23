@@ -1,0 +1,117 @@
+<% form_for :dates, :url => {:action => "update_filter" } do |f| %>
+	<div class="span-10 last br">
+		<div class="span-2" >
+			<label><%= get_member_pref('location') %>:</label>
+		</div>
+		<div class="span-8 last" >
+			<%= f.select(:location, @date_filter.find_locations, 
+					{ :selected => (@date_filter.location if @date_filter.location) }, 
+					:onchange => "this.form.submit()", 
+					:class => "date_select")%>
+		</div>		
+	</div>  
+	
+	<div class="span-10 last br">
+		<div class="span-2" >
+			<label>Press:</label>
+		</div>
+		<div class="span-8 last" >
+			<%= f.select(:press, @date_filter.find_presses, 
+					{ :selected => (@date_filter.press if @date_filter.press ) }, 
+					:class => "date_select")%>
+		</div>		
+	</div>
+
+	<div class="span-10 last br">
+		<div class="span-2" >
+			<label><%= get_member_pref('series') %>:</label>
+		</div>
+		<div class="span-8 last" >
+			<%= f.select(:series, @date_filter.find_series, 
+					{ :selected => (@date_filter.series if @date_filter.series) },  
+					:class => "date_select")%>
+		</div>		
+	</div>
+
+	<div class="span-10 last br">
+		<div class="span-2">
+			<label><%= get_member_pref('device') %>:</label>
+		</div>
+		<div class="span-8 last" >
+			<%= f.collection_select(:device, @date_filter.find_location_devices, 
+					:id, :name, { :selected => @date_filter.device_id }, 
+					:class => "date_select")%>
+		</div>			
+	</div>
+	<% unless controller.action_name =~ /_pass_fail$/i %>
+		<div class="span-10 last br">
+			<div class="span-2">
+				<label><%= get_member_pref('pass_fail') %>:</label>
+			</div>
+			<div class="span-8 last" >
+				<%= f.select(:pass, ["All", get_member_pref('pass_label'), get_member_pref('fail_label')], 
+						{ :selected => (@date_filter.pass if @date_filter.pass) }, 
+						:class => "date_select")%>
+			</div>					
+		</div>
+	<% end %>
+	<div class="span-10 last br">
+		<div class="span-2">
+			<label><%= get_member_pref('operator') %>:</label>
+		</div>
+		<div class="span-8 last" >
+			<%= f.select(:operator, @date_filter.find_operators, 
+					{ :selected => (@date_filter.operator if @date_filter.operator) }, 
+					:class => "date_select")%>
+		</div>					
+	</div>
+	
+	<div class="span-10 last br">
+		<div class="span-2">
+			<label><%= get_member_pref('profile') %>:</label>
+		</div>
+		<div class="span-8 last" >
+			<%= f.select(:profile, @date_filter.find_profiles, 
+					{ :selected => (@date_filter.profile if @date_filter.profile) }, 
+					:class => "date_select")%>
+		</div>					
+	</div>
+	
+	<%=  render(:partial => "filter/patch_selector", :locals => {:f => f }) if show_date_filter_patch_selector %>
+	
+	<div class="span-10 last br">
+		<div class="span-2">
+			<label><%= get_member_pref('customer') %>:</label>
+		</div>
+		<div class="span-8 last" >
+			<%= f.select(:customer, @date_filter.find_customers, 
+					{ :selected => (@date_filter.customer if @date_filter.customer) }, 
+					:class => "date_select")%>
+		</div>					
+	</div>
+
+	<div class="span-10 last br">
+		<div class="span-2">
+			<label>Start:</label>
+		</div>
+		<div class="span-8 last" >
+			<%= f.text_field 'start_date' , :size => "10" , :value => @date_filter.get_start_date %>
+		</div>	
+	</div>
+
+	<div class="span-10 last br">
+		<div class="span-2">
+			<label>End:</label>
+		</div>
+		<div class="span-8 last" >
+			<%= f.text_field 'end_date', :size => "10" , :value => @date_filter.get_end_date %>
+		</div>
+	</div>
+	
+	<%= render(:partial => "filter/limit_selector", :locals => {:f => f }) if show_date_filter_limit_selector %>
+
+
+	<div class="span-10 last br">
+		<%= submit_tag("Update")  %>
+	</div>
+<% end %>

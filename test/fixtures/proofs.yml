@@ -1,0 +1,25 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  device_id: 1
+  operator: MyString
+  profile_name: MyString
+  profile_mod_date: 2009-05-21 22:39:53
+  sticker_count: 1
+  spot_color_count: 1
+  dEab: 1.5
+  dEcmc: 1.5
+  dE2000: 1.5
+  pass: 1
+
+two:
+  device_id: 1
+  operator: MyString
+  profile_name: MyString
+  profile_mod_date: 2009-05-21 22:39:53
+  sticker_count: 1
+  spot_color_count: 1
+  dEab: 1.5
+  dEcmc: 1.5
+  dE2000: 1.5
+  pass: 1

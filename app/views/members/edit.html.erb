@@ -1,0 +1,25 @@
+<div class="prepend-1 span-17 last">	
+	<h3>Editing member</h3>
+	<div class="span-5 last">
+	<% form_for(@member) do |f| %>
+  	<%= f.error_messages %>
+ 				<div class="span-2"><%= f.label :member_id %>:</div>
+				<div class="span-5 last"><%= h @member.id %></div><br/><br/>
+  			<div class="span-2"><%= f.label :name %>:</div>
+				<div class="span-5 last"><%= f.text_field :name %></div><br/><br/>
+			<%# Add nested attributes for member_preferences %>		  	
+			<% f.fields_for :member_preferences do |preference_fields| %>
+				<div class="span-2"><label><%= preference_fields.object.pref %>:</label></div>
+				<% if preference_fields.object.value && preference_fields.object.value.length > 45 %>
+					<br/><div class="span-5 last"><%= preference_fields.text_area :value %></div><br/><br/><br/><br/><br/><br/>
+				<% else %>
+					<div class="span-5 last"><%= preference_fields.text_field :value %></div><br/><br/>
+				<% end %>	
+	    <% end %>
+		</div>
+    <div class="span-16 last"><%= f.submit 'Update' %></div>
+		<br/>
+	<% end %>
+	<br/>
+	<div class="span-5 last"><%= link_to 'View', members_path %></div>
+</div>	

@@ -1,0 +1,12 @@
+<h1>Editing pref</h1>
+
+<% form_for(@pref) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @pref %> |
+<%= link_to 'Back', prefs_path %>

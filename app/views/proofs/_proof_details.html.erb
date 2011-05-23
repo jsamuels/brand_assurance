@@ -1,0 +1,31 @@
+<div>
+	<table>
+  	<tr class="header-row">
+			<th>Field</th>
+			<th>Value</th>
+  	</tr>
+		<tr valign="top" class=" <%= cycle('list-line-odd', 'list-line-even') %>">
+			<td><%= h get_member_pref('location') %></td> 
+    	<td>
+				<%= h Device.find(@proof.device_id).location %>
+			</td> 
+		</tr>
+		<tr valign="top" class=" <%= cycle('list-line-odd', 'list-line-even') %>"> 
+			<td><%= h get_member_pref('device') %></td> 
+    	<td>
+				<%= h Device.find(@proof.device_id).name %>
+			</td>
+  	</tr>
+		<% @proof.attributes.each do |key, value| -%>
+			<% unless value.blank? %>
+				<tr valign="top" class=" <%= cycle('list-line-odd', 'list-line-even') %>">
+					<td><%= h get_member_pref(key) || key %></td> 
+		    	<td>
+						<%= h  value %>
+					</td>
+		  	</tr>
+			<% end -%>
+		<% end -%>
+	</table>
+</div>
+

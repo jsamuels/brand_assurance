@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  patch_num: 1
+  name: MyString
+  r: 9.99
+  g: 9.99
+  b: 9.99
+  c: 9.99
+  m: 9.99
+  y: 9.99
+  k: 9.99
+
+two:
+  patch_num: 1
+  name: MyString
+  r: 9.99
+  g: 9.99
+  b: 9.99
+  c: 9.99
+  m: 9.99
+  y: 9.99
+  k: 9.99

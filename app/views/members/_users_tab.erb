@@ -1,0 +1,9 @@
+<div>
+	<h4><%= link_to "Users", {:controller => 'members', :action => 'index'} %></h4>
+		<div>
+			<p class="tab-links">
+				<%= link_to 'All', {:controller => 'login', :action => 'list_users'}, :style => "color: #009;" %> | 
+				<%= link_to 'New', {:controller => 'login', :action => 'add_user'} , :style => "color: #009;" %>
+			</p>
+		</div>	
+</div>

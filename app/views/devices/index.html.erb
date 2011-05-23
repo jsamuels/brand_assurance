@@ -1,0 +1,46 @@
+<div class="prepend-1 span-19 last">	
+  <h3><%= h @member.name%>'s proofing devices</h3>
+
+	<table>
+  	<tr class="header-row">
+			<th><%= get_member_pref('location')%></th>
+			<th><%= get_member_pref('device')%></th>
+			<th>Type</th>
+   		<th><%= get_member_pref('operator')%></th>
+   		<th>Ave dE</th>
+   		<th>Max dE</th>
+    	<th>Gray 50%</th>
+			<th>Time</th>
+			<th>ID</th>
+  	</tr>
+
+
+	<% @list_devices.each do |device| %>
+  <% proof = device.proofs.last %>
+		<% unless proof.blank? %>
+	
+	  <tr valign="top" class=" <%= proof.proof_pass? ?  cycle('list-line-odd', 'list-line-even') : 'error-row'  %>">
+			<td><%=h device.location %></td> 
+    	<td class="<%= proof.proof_pass? ?  'pass' : 'fail'  %>">
+				<%= link_to device.name, :controller => 'devices', :action => 'trend_de', :device => device.id %>
+			</td>
+			<td><%=h device.kind %></td>   	
+			<td><%=h proof.operator %></td>
+    	<td class="<%= proof.ave_de_ok? ?  'pass' : 'fail'  %>">
+				<%= link_to proof.ave_de, :controller => 'devices', :action => 'proof_details', :proof => proof.id %>
+			</td>
+    	<td class="<%= proof.max_de_ok? ?  'pass' : 'fail'  %>">
+				<%= link_to proof.max_de, :controller => 'devices', :action => 'proof_details', :proof => proof.id %>
+			</td>
+    	<td class="<%= proof.gray_50_ok? ?  'pass' : 'fail'  %>">
+				<%= link_to proof.gray_50, :controller => 'devices', :action => 'proof_details', :proof => proof.id %>
+			</td>
+			<td><%= h(time_ago_in_words(proof.created_at)) %> ago</td>
+			<td><%=h proof.id %></td>
+  	</tr>
+		<% end %>
+	<% end %>	
+	</table>
+</div>
+
+

@@ -1,0 +1,13 @@
+<div>
+	<h4><%= link_to "Charts", :controller => 'proofs', :action => 'index' %></h4>
+		<div>
+			<%= tab_link "Quantities", 'proofs', 'device_quantities' %>
+			<%= tab_link "Histogram", 'proofs', 'device_de_histogram' %>
+			<%= tab_link "#{get_member_pref('patch')} dE", 'proofs', 'patch_de' %>
+			<%= tab_link "#{get_member_pref('patch')} L*a*b*", 'proofs', 'patch_lab' %>
+			<%= tab_link "#{get_member_pref('device')} dE", 'proofs', 'device_de' %>
+			<%= tab_link "#{get_member_pref('profile')} dE", 'proofs', 'profile_de' %>
+			<%= tab_link "#{get_member_pref('location')} dE", 'proofs', 'location_de' %>
+			<%= tab_link "#{get_member_pref('operator')} dE", 'proofs', 'operator_de' %>
+		</div>
+</div>

@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>ProofCheck: <%= controller.controller_name + "/" + controller.action_name %></title>
+	
+	<%= stylesheet_link_tag 'blueprint/screen.css', :media => "screen, projection" %>
+	<%= stylesheet_link_tag 'blueprint/print.css', :media => "print" %>
+	<%= stylesheet_link_tag 'smoothness/jquery-ui-1.7.1.custom', :media => "all" %>
+	<%= stylesheet_link_tag 'vcc' %>
+	<!--[if IE]><link href="/stylesheets/blueprint/ie.css" media="screen, projection" rel="stylesheet" type="text/css" ><![endif]-->
+	<%= javascript_include_tag :defaults %>
+	<%= javascript_include_tag 'jquery-1.3.2.min'%>
+	<%= javascript_include_tag 'jquery-ui-1.7.1.custom.min'%>
+	
+	<% set_date_filter_controller_action -%>
+	<script type="text/javascript">
+	// this fixes the conflict with prototype, 
+	// remember to reference all jQuery functions with $j, not $
+		var $j = jQuery.noConflict();  
+		$j(function(){
+
+			// Accordion
+			$j("#accordion").accordion({ header: "h4",
+				//collapsible: true,
+				//autoheight: false, 
+				//fillSpace: true,
+				//navigation: true
+				active: <%= accordian_selected %>
+			});
+			<% if accordian_selected %>
+				$j("#accordion").accordion( 'enable' );
+			<% else %>
+				$j("#accordion").accordion( 'disable' );
+			<% end %>
+
+			// Tabs
+			$j('#tabs').tabs();
+
+			// Datepickers
+			$j.datepicker.setDefaults({
+					showOn: 'both',
+					showButtonPanel: true,
+					buttonImage: '/images/datepicker.png',
+					buttonImageOnly: true
+				});
+
+			$j('#dates_start_date').datepicker({});
+			$j('#dates_end_date').datepicker({});
+
+			//hover states on the static widgets
+			$j('#dialog_link, ul#icons li').hover(
+				function() { $j(this).addClass('ui-state-hover'); }, 
+				function() { $j(this).removeClass('ui-state-hover'); }
+			);
+
+		});
+	</script>
+
+</head>
+<body>
+
+<div class="container">
+	<div id="header" class="span-24" >
+		<div id="header" class="span-24 last" >
+			<hr>
+			  <%= image_tag get_member_pref('logo').blank? ? 'vertis_logo.gif' : get_member_pref('logo') , :height => '40', :style => 'float:left' %>
+			  <%= image_tag 'vertis_logo.gif', :height => '35', :style => 'float:right' %>
+				<h3 style="text-align:center">ProofCheck Reporter</h3>	
+			<hr>
+		</div>
+	</div>
+	<div id="sidebar" class="span-4" style="" >
+			<!-- Accordion -->
+			<div id="accordion">
+				<%= render(:partial => "devices/status_tab" ) %>
+				<%= render(:partial => "devices/trends_tab" ) %>
+				<%= render(:partial => "proofs/charts_tab") %>
+				<% if accordian_access(4) -%>
+					<%= render(:partial => "proofs/analysis_tab") %>
+				<% end -%>	
+				<% if accordian_access(5) -%>
+					<%= render(:partial => "pageviews/pageviews_tab" ) %>	
+					<%= render(:partial => "members/members_tab" ) %>	
+					<%= render(:partial => "members/users_tab" ) %>
+				<%end %>			
+			</div>
+			<!-- end Accordion -->
+			<br/>
+			<p class="incr"><%= link_to "ColorSpace", "http://stor01.colorspace.net/imoppp/login.jsp" %> <br/>
+				<%= link_to "Logout", :controller => 'login', :action => 'logout' %> 
+			</p>		
+	</div>
+	<% if flash[:notice] -%>
+		<div class="prepend-1 span-18 last" style= "text-align: center;" >
+			<div class="ui-widget">
+				<div class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;"> 
+					<span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
+					<p>
+					 <%= flash[:notice] %>
+					</p>
+				</div>
+			</div>
+		</div>
+	<% end -%>
+  <%= yield %>
+</div>
+
+</body>
+</html>

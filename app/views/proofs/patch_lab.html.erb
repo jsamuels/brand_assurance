@@ -1,0 +1,16 @@
+<div class="span-15" >
+ 	<div id="lab_table" class="scrollable"> 
+		<% if @date_filter.profile =~ /^all$/i || @patches.blank? %>
+			<%= "Please select a #{get_member_pref('profile').downcase} to view L*a*b references."%>
+		<% else %>
+			<%= "L*a*b references for #{get_member_pref('profile').downcase}: #{@date_filter.profile}"%>   
+			<%=  render(:partial => "proofs/lab_table", :locals => { :patches => @patches } ) %>            
+		<% end %>	
+	</div> 
+</div>
+
+<div id="right_bar" class="span-5 last">
+	<div id="select_filter">
+		<%=  render(:partial => "filter/date_filter") %>
+	</div>
+</div>

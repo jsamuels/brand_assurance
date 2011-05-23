@@ -1,0 +1,21 @@
+<div id="display_chart">
+	<%# this looks like bad form b/c I am setting a variable in a view, but I don't want to calculate this twice %>	
+	<% chart_data = xml_data(@date_filter, trend) %>
+	<% if chart_data.blank? -%>
+		<% if trend == false %>
+			<p>To display a graph, select its link in the sidebar.</p>
+			<p>Action: <%= h controller.action_name %></p>
+		<% elsif trend == 'l' %>
+			<h2>Select a <%= get_member_pref('patch') %> to display LAB graphs</h2> 
+		<% elsif trend == 'spectral' %>
+			<h2>Select a <%= get_member_pref('patch') %> to display Spectral graph</h2>	
+		<% end %>	
+	<% else %>   
+	<% ch = chart_height(chart_data).to_s %> 
+	<object width="<%= chart_width -%>" height="<%=ch-%>" id="<%= chart_swf(@date_filter.chart_type) -%>" >
+		<embed src="../FusionCharts/<%= chart_swf(@date_filter.chart_type) -%>" flashVars="<%= chart_data -%>" 
+			quality="high" width="<%= chart_width -%>" height="<%=ch-%>" name="<%= chart_swf(@date_filter.chart_type) -%>" 
+			type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+	</object>
+	<% end %>
+</div>

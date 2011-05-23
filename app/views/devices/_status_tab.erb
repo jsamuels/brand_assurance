@@ -1,0 +1,17 @@
+<div>
+	<h4><%= link_to "Status", {:controller => 'devices', :action => 'index'} %></h4>
+		<div>
+			<%	unless @divisions.nil? -%>
+				<% @divisions.each do |division| -%>
+					<%= tab_link(division.name, 'devices', 'division', 'division', division.id) %> 
+					<%= render(:partial => "devices/locations", :locals => { :division => division } )%> 
+				<% end -%>
+			<% end -%>
+			
+			<br/>
+			<br/>
+			<p class="tab-links">
+				<br/><%= link_to 'All', {:controller => 'devices', :action => 'locations' }, :style => "color: #009;" %> 
+			</p>
+		</div>
+</div>

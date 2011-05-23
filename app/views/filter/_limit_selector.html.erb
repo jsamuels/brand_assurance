@@ -1,0 +1,10 @@
+<div class="span-10 last br">
+	<div class="span-2">
+		<label>Limit:</label>
+	</div>
+	<div class="span-8 last" >
+		<%= f.select(:limit, ["25", "50", "75", "100", "500", "1000"], 
+				{ :selected => (@date_filter.limit if @date_filter.limit) }, 
+				:class => "date_select")%>
+	</div>					
+</div>

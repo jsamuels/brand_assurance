@@ -1,0 +1,35 @@
+<div class="prepend-1 span-19 last">	
+  <h3><%= h @member.name%> Users' Last Pageview</h3>
+
+	<table>
+  	<tr class="header-row">
+			<th>Member</th>
+			<th>User</th>
+			<th>OS</th>
+			<th>Browser</th>
+			<th>IP</th>
+			<th>URL</th>
+			<th>Last View</th>
+  	</tr>
+		
+	<% @users.each do |user| %>
+  <% pageview = user.pageviews.last %>
+		<% unless pageview.blank? %>
+	
+	  <tr valign="top" class=" <%= cycle('list-line-odd', 'list-line-even') %>">
+			<td><%=h user.member.name %></td> 
+    	<td class="pass">
+				<%= link_to user.name, :controller => 'pageviews', :action => 'user_pageviews', :show_user => user.id %>
+			</td>
+			<td><%=h pageview.os %></td>
+			<td><%=h pageview.browser %></td>
+			<td><%=h pageview.ip_address %></td> 
+			<td><%=h pageview.request_url %></td>    	
+			<td><%= h(time_ago_in_words(pageview.created_at)) %> ago</td>
+  	</tr>
+		<% end %>
+	<% end %>	
+	</table>
+</div>
+
+

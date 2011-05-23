@@ -1,0 +1,13 @@
+<div class="prepend-1 span-10 last">	
+	<h3>Member Preferences</h3>
+
+  <p>
+  	<!-- members -->	
+		<%	if !(@members.nil?) %>
+			<% @members.each do |m| %>
+				• <%= link_to m.name, edit_member_path(m) %><br/>
+			<% end %>
+		<% end %>
+  </p>
+
+</div>

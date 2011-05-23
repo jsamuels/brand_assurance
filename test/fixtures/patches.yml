@@ -1,0 +1,35 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  proof_id: 1
+  patch_num: 1
+  lvalue: 1.5
+  avalue: 1.5
+  bvalue: 1.5
+  hvalue: 1.5
+  cvalue: 1.5
+  t_lvalue: 1.5
+  t_avalue: 1.5
+  t_bvalue: 1.5
+  t_hvalue: 1.5
+  t_cvalue: 1.5
+  dE2000: 1.5
+  kind: MyString
+  name: MyString
+
+two:
+  proof_id: 1
+  patch_num: 1
+  lvalue: 1.5
+  avalue: 1.5
+  bvalue: 1.5
+  hvalue: 1.5
+  cvalue: 1.5
+  t_lvalue: 1.5
+  t_avalue: 1.5
+  t_bvalue: 1.5
+  t_hvalue: 1.5
+  t_cvalue: 1.5
+  dE2000: 1.5
+  kind: MyString
+  name: MyString

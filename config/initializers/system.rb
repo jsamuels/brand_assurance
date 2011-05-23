@@ -1,0 +1,1 @@
+#  ENV['TZ'] = "UTC"  # Can be used to set the TimeZone to UTC on start up

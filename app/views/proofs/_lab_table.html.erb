@@ -1,0 +1,36 @@
+<div>
+	<table class="lab-table">
+  	<tr class="header-row">
+			<th rowspan="2" >Colors</th>
+			<th colspan="5">Reference / Sample</th>
+			<th rowspan="2">dE 2000</th>
+		</tr>
+  	<tr class="header-row">
+			<th>L</th>
+			<th>a</th>
+			<th>b</th>
+			<th>C</th>
+			<th>h</th>    
+  	</tr>
+		<% patches.sort.each do |patch| -%> 
+			<% row_class = cycle('list-line-odd', 'list-line-even') %>
+			<%= lab_row(patch, row_class) %> 
+				<td rowspan="2" class="bottom" ><%= h patch.patch_name %></td>
+	      <td class="left"><%= h patch.target_l%></td> 
+				<td ><%= h patch.target_a %></td>
+				<td ><%= h patch.target_b %></td> 
+				<td ><%= h patch.target_c %></td> 
+				<td ><%= h patch.target_h %></td>
+				<td rowspan="2" class="left bottom"><%= h patch.format_dE2000 %></td> 
+			</tr>
+			<%= lab_row(patch, row_class) %>
+				<td class="left bottom"><%= h patch.sample_l %></td> 
+				<td class="bottom"><%= h patch.sample_a %></td> 
+				<td class="bottom"><%= h patch.sample_b %></td>
+				<td class="bottom"><%= h patch.sample_c %></td>
+				<td class="bottom"><%= h patch.sample_h %></td>
+			</tr >  
+		<% end -%>
+	</table>
+</div>
+

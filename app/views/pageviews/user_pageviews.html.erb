@@ -1,0 +1,36 @@
+<div class="prepend-1 span-19 last">	
+  <h3><%= h @show_user.name%>'s Last 50 Pageviews</h3>
+	<%= link_to "Back", {:controller => 'pageviews', :action => 'index' } %>
+	<table>
+  	<tr class="header-row">
+			<th>OS</th>
+			<th>Browser</th>
+			<th>IP</th>
+			<th>URL</th>
+			<th>Last Page</th>
+			<th>Date Filter</th>
+			<th>User Agent</th>
+			<th>Time</th>
+  	</tr>
+		
+	<% @user_pageviews.each do |pageview| %>
+		<% unless pageview.blank? %>
+	
+	  <tr valign="top" class=" <%= cycle('list-line-odd', 'list-line-even') %>">
+			<td><%=h pageview.os %></td>
+			<td><%=h pageview.browser %></td>
+			<td><%=h pageview.ip_address %></td> 
+			<td><%=h pageview.request_url %></td>
+			<td><%=h pageview.referer %></td>
+			<td class="pass">
+				<%= link_to "Date Filter", :controller => 'pageviews', :action => 'pageview_date_filter', :pageview => pageview.id %>
+			</td>
+			<td class="pass">
+				<%= link_to "User Agent", :controller => 'pageviews', :action => 'pageview_user_agent', :pageview => pageview.id %>
+			</td>    	
+			<td><%= h(time_ago_in_words(pageview.created_at)) %> ago</td>
+  	</tr>
+		<% end %>
+	<% end %>	
+	</table>
+</div>

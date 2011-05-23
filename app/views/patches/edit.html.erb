@@ -1,0 +1,12 @@
+<h1>Editing patch</h1>
+
+<% form_for(@patch) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @patch %> |
+<%= link_to 'Back', patches_path %>

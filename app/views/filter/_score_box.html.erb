@@ -1,0 +1,29 @@
+<%#= fail get_member_pref('show_box_score').inspect %>
+<% if get_member_pref('show_box_score').to_i > 0 %>
+	<hr id="score_box_hr">
+	<div id="score_box" >	
+		<table>
+	  	<tr class="header-row">
+				<th>Box Score</th>
+				<th></th>
+	  	</tr>
+	
+		  <tr valign="top" class="list-line-odd">
+				<td>Stickers:</td>
+				<td><%= number_with_delimiter(@sticker_count) %></td>
+			</tr>
+			<tr valign="top" class="list-line-even">	
+				<td>Measurements:</td>
+				<td><%= number_with_delimiter(@measurement_count) %></td>
+			</tr>
+			<tr valign="top" class="list-line-odd">	
+				<td>Percent Pass:</td>
+				<td><%= number_to_percentage(@measurement_pass_percent, :precision => 0) %></td>
+			</tr>
+			<tr valign="top" class="list-line-even">	
+				<td>Paper Inches:</td>
+				<td><%= number_with_delimiter(@sq_inches_of_paper) %></td>  
+	  	</tr>
+		</table>
+	</div>
+<% end %>

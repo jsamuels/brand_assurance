@@ -1,0 +1,5 @@
+<div id="<%= 'division_' + division.id.to_s %>" class="division_link" style="" >
+	<% division.locations.each do |location|  -%>
+	  <%= tab_link(location, 'devices', 'location', 'location', location) %>
+	<% end -%>  
+</div>

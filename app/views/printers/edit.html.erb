@@ -1,0 +1,12 @@
+<h1>Editing printer</h1>
+
+<% form_for(@printer) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @printer %> |
+<%= link_to 'Back', printers_path %>

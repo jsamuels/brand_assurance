@@ -1,0 +1,10 @@
+<div class="span-10 last br">
+	<div class="span-2">
+		<label><%= get_member_pref('patch') %>:</label>
+	</div>
+	<div class="span-8 last" >
+		<%= f.select(:patch, @date_filter.find_patches, 
+				{ :selected => (@date_filter.patch if @date_filter.patch) }, 
+				:class => "date_select")%>
+	</div>					
+</div>

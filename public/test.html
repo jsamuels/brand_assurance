@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Devices: index</title>
+
+	<link href="stylesheets/smoothness/jquery-ui-1.7.1.custom.css?1243448000" media="all" rel="stylesheet" type="text/css" />
+	<script src="javascripts/jquery-1.3.2.min.js?1243448000" type="text/javascript"></script>
+	<script src="javascripts/jquery-ui-1.7.1.custom.min.js?1243447998" type="text/javascript"></script>
+	
+	<script type="text/javascript">
+		$(function(){
+
+			// Accordion
+			$("#accordion").accordion({ header: "h3" });
+
+			// Tabs
+			$('#tabs').tabs();
+
+			// Datepicker
+			$('#datepicker').datepicker({
+				inline: true
+			});
+			
+			//hover states on the static widgets
+			$('#dialog_link, ul#icons li').hover(
+				function() { $(this).addClass('ui-state-hover'); }, 
+				function() { $(this).removeClass('ui-state-hover'); }
+			);
+			
+		});
+	</script>
+
+	<style type="text/css">
+		/*demo page css*/
+		body{ font: 62.5% "Trebuchet MS", sans-serif; margin: 50px;}
+		.demoHeaders { margin-top: 2em; }
+		#dialog_link {padding: .4em 1em .4em 20px;text-decoration: none;position: relative;}
+		#dialog_link span.ui-icon {margin: 0 5px 0 0;position: absolute;left: .2em;top: 50%;margin-top: -8px;}
+		ul#icons {margin: 0; padding: 0;}
+		ul#icons li {margin: 2px; position: relative; padding: 4px 0; cursor: pointer; float: left;  list-style: none;}
+		ul#icons span.ui-icon {float: left; margin: 0 4px;}
+	</style>
+	
+</head>
+<body>
+
+<!-- Accordion -->
+<h2 class="demoHeaders">Accordion</h2>
+<div id="accordion">
+	<div>
+		<h3><a href="#">First</a></h3>
+		<div>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</div>
+	</div>
+	<div>
+		<h3><a href="#">Second</a></h3>
+		<div>Phasellus mattis tincidunt nibh.</div>
+	</div>
+
+	<div>
+		<h3><a href="#">Third</a></h3>
+		<div>Nam dui erat, auctor a, dignissim quis.</div>
+	</div>
+</div>
+
+</body>
+</html>

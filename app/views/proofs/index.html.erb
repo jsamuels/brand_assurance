@@ -1,0 +1,24 @@
+<div class="span-15" >
+	<div id="chart" class="chart">
+  	<%#   *****   GRAPH  ******   -%>
+		<% if controller.action_name == "trend_labch" -%>
+			<% ['l', 'a', 'b'].each do |trend| -%>
+				<%= render(:partial => "proofs/chart", :locals => { :trend => trend } )%>
+			<% end -%>
+		<% elsif controller.action_name == "trend_spectral"  -%>	
+			<%= render(:partial => "proofs/chart" , :locals => { :trend => 'spectral' } ) %>
+		<% else -%>
+			<%= render(:partial => "proofs/chart" , :locals => { :trend => false } ) %>
+		<% end -%>
+	</div>
+</div>
+
+<div id="right_bar" class="span-5 last">
+	<div id="select_filter">
+		<%=  render(:partial => "filter/date_filter") %>
+	</div>
+
+	<% if controller.action_name =~ /device_quantities/i -%>	
+		<%=  render(:partial => "filter/score_box") %>
+	<% end -%>	
+</div>

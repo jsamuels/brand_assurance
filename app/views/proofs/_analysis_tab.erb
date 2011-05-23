@@ -1,0 +1,9 @@
+<div>
+	<h4><%= link_to "Analysis", :controller => 'proofs', :action => 'index' %></h4>
+		<div>
+			<%= tab_link "#{get_member_pref('location')}", 'proofs', 'location_pass_fail' %>
+			<%= tab_link "#{get_member_pref('device')}", 'proofs', 'device_pass_fail' %>
+			<%= tab_link "#{get_member_pref('profile')}", 'proofs', 'profile_pass_fail' %>
+			<%= tab_link "#{get_member_pref('operator')}", 'proofs', 'operator_pass_fail' %>
+		</div>
+</div>

@@ -1,0 +1,14 @@
+<div class="prepend-1 span-19 last">	
+  <h3><%= h @pageview.id%> User Agent Details</h3>
+	<%= link_to "Back", {:controller => 'pageviews', :action => 'user_pageviews', :show_user => @pageview.user_id } %>
+	<table>
+  	<tr class="header-row">
+			<th>User Agent Details</th>
+  	</tr>
+		
+	  <tr valign="top" class=" <%= cycle('list-line-odd', 'list-line-even') %>">
+			<td><%=h @pageview.user_agent %></td>
+  	</tr>
+
+	</table>
+</div>

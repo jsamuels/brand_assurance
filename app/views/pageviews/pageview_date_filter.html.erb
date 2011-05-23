@@ -1,0 +1,17 @@
+<div class="prepend-1 span-19 last">	
+  <h3><%= h @pageview.id%> Date Filter Details</h3>
+	<%= link_to "Back", {:controller => 'pageviews', :action => 'user_pageviews', :show_user => @pageview.user_id } %>
+	<table>
+  	<tr class="header-row">
+			<th>Key</th>
+			<th>Value</th>
+  	</tr>
+		
+	<% @filter_values.each do |key, value| %>
+	  <tr valign="top" class=" <%= cycle('list-line-odd', 'list-line-even') %>">
+			<td><%=h key %></td>
+			<td><%=h value %></td>
+  	</tr>
+	<% end %>	
+	</table>
+</div>

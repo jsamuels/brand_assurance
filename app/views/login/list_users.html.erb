@@ -1,0 +1,29 @@
+<div class="prepend-1 span-18">	
+	<h3>Users</h3>
+	<ul>
+		<% for user in @all_users %>
+			<% unless user.blank?  %>
+			<li><%= link_to "[X]", {# link_to options
+								:controller =>	'login',
+								:action		=>	'delete_user',
+								:id			=>	user} ,
+								{ #html options
+								:method 	=> 	:post,
+								:confirm	=>	"Are you sure you want to delete #{user.name} ?"
+								} %>
+					<%= link_to "[edit]", {# link_to options
+								:controller =>	'login',
+								:action		=>	'edit_user',
+								:id			=>		user} ,
+								{ #html options
+								:method 	=> 	:post,
+								} %>					
+					<%= h(user.name) %>
+			</li>
+		<% end -%>
+		<% end -%>
+	</ul>	
+</div>	
+<div class="span-1 last">
+  <p><del></del></p>
+</div>

@@ -1,0 +1,80 @@
+/* override blueprint */
+textarea {width:450px;height:100px;padding:5px;}
+
+/* Styles for tables List */
+
+.list-line-even {
+	background:	#F0F0F0;
+	color:		#000000;
+}
+
+.list-line-odd {
+	background:	#C0C0C0;
+	color:		#000000;
+}
+
+.header-row {
+	background:	#333333;
+	color:		#FFFFFF;
+}
+
+.error-row {
+	background:	#DD0000;
+	color:		#FFFFFF;
+}
+
+.error-row a {
+	color:		#DDDDDD;
+}
+
+.fail a {
+	color:		#FFFFFF;
+}
+
+.pass a {
+	color:		#000000;
+}
+
+.lab-table { 
+	border-collapse: collapse 
+}
+
+.lab-table th {
+	width:		50px;
+}  
+
+.lab-table .left { 
+	border-left: 1px solid black 
+} 
+
+.lab-table .bottom { 
+	border-bottom: 1px solid black 
+}
+
+/* Styles for Navigation Links
+ This needs to be done in the smoothness css
+*/
+
+/* Styles for tabs */  
+
+.division_link {
+ margin: 	0px 0px 10px 5px; 
+}
+
+.tab-links {
+	font-size:	0.75em;
+	color: 		#009;
+}
+
+fieldset{
+	margin: 	-26px 0px 0px 0px; 
+}
+
+#score_box_hr{
+	background:	#FFFFFF; 
+}
+/* special divs */
+div .scrollable { 
+	height:		650px; 
+	overflow:	auto;
+}	
