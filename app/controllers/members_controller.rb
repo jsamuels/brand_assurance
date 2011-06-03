@@ -15,7 +15,7 @@ class MembersController < ApplicationController
   		redirect_to(:action => "index")
   	else
   		flash.now[:notice] = "Error updating user."
-  		render ( :action => "index" )
+  		render( :action => "index" )
   	end
   end  
 
