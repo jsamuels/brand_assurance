@@ -12,7 +12,7 @@ class MembersController < ApplicationController
     
     if @user.update_attributes(:member_id => user_member_id , :name => name )
   		flash.now[:notice] = "User #{name} updated."
-  		redirect_to (:action => "index")
+  		redirect_to(:action => "index")
   	else
   		flash.now[:notice] = "Error updating user."
   		render( :action => "index" )

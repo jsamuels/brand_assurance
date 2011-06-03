@@ -45,4 +45,4 @@ production:
   pool: 5
   username: vcc
   password: vcc
-  host: localhost
+  host: 174.143.210.109
